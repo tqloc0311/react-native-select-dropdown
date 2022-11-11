@@ -51,7 +51,7 @@ export const useLayoutDropdown = (data, dropdownStyle, rowStyle, search) => {
         height: dropdownHEIGHT,
         width: dropdownWIDTH,
         borderTopWidth: 0,
-        overflow: 'hidden',
+        overflow: dropdownStyle?.overflow ?? 'hidden',
       },
       ...(I18nManager.isRTL ? {right: dropdownStyle?.right || dropdownPX} : {left: dropdownStyle?.left || dropdownPX}),
     };
