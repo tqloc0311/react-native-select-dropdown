@@ -1,4 +1,5 @@
 import {useEffect, useState, useMemo} from 'react';
+import { Platform } from 'react-native';
 import {I18nManager, Dimensions} from 'react-native';
 import {calculateDropdownHeight} from '../helpers/calculateDropdownHeight';
 import {useKeyboardRemainingScreenHeight} from './useKeyboardRemainingScreenHeight';
@@ -47,7 +48,7 @@ export const useLayoutDropdown = (data, dropdownStyle, rowStyle, search) => {
       ...dropdownStyle,
       ...{
         position: 'absolute',
-        top: top,
+        top: top - (Platform.OS == 'android' ? 32 : 0),
         height: dropdownHEIGHT,
         width: dropdownWIDTH,
         borderTopWidth: 0,
